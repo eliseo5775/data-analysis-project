@@ -9,11 +9,14 @@ from datetime import date
 FILENAME = 'Dataset/covid19_tweets.csv'
 df = pd.read_csv(FILENAME)
 
+#Exploramos la data
+print(df.shape)
 print(df.head())
 
 # Ejecuta una función que calcule cuantos días transcurridos han pasado hasta
 # el día que se ejecute, desde la primera vez que un usuario publicó un tweet
 # acerca del CoronaVirus
+
 
 def diastranscurridos(df_input001):
     current_date = date.today()
