@@ -1,6 +1,4 @@
-# Ejecuta una función que calcule cuantos días transcurridos han pasado hasta
-# el día que se ejecute, desde la primera vez que un usuario publicó un tweet
-# acerca del CoronaVirus.
+
 from datetime import date
 import pandas as pd 
 
@@ -20,6 +18,9 @@ print(df.shape)
 print(df.info())
 #print(df.iloc[1:5,5:13])
 
+# Ejecuta una función que calcule cuantos días transcurridos han pasado hasta
+# el día que se ejecute, desde la primera vez que un usuario publicó un tweet
+# acerca del CoronaVirus.
 
 def diastranscurridos(df_in001):
     # limpiar el data set y quitar columnas feas
