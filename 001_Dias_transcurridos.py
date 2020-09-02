@@ -9,19 +9,23 @@ df = pd.read_csv(FILENAME)
 
 #Transformas la data
 df["user_name"] = df['user_name'].astype('string')
+df["user_location"] = df['user_location'].astype('string')
+df["user_description"] = df['user_description'].astype('string')
+df["user_created"] = df['user_created'].astype('datetime64[ns]')
 df["date"] = df['date'].astype('datetime64[ns]')
 
 #Exploramos la data
 print(df.shape)
 print(df.head())
 print(df.info())
-print(df.iloc[:,3:10])
+print(df.iloc[1:5,5:13])
+
 
 
 def diastranscurridos(df_input001):
     
     current_date = date.today()
-    print(current_date)
-    return
+    return(current_date)
 
-diastranscurridos(df)
+today = diastranscurridos(df)
+print(f'la fecha de hoy es \n{today}')
