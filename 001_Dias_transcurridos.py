@@ -7,10 +7,16 @@ import pandas as pd
 FILENAME = 'Dataset/covid19_tweets.csv'
 df = pd.read_csv(FILENAME)
 
+#Transformas la data
+df["user_name"] = df['user_name'].astype('string')
+df["date"] = df['date'].astype('datetime64[ns]')
+
 #Exploramos la data
 print(df.shape)
 print(df.head())
-print(df.iloc[:,1:5])
+print(df.info())
+print(df.iloc[:,3:10])
+
 
 def diastranscurridos(df_input001):
     
