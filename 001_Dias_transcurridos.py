@@ -17,7 +17,7 @@ df["date"] = df['date'].astype('datetime64[ns]')
 #Exploramos la data
 print(df.shape)
 #print(df.head())
-#print(df.info())
+print(df.info())
 #print(df.iloc[1:5,5:13])
 
 
@@ -28,11 +28,12 @@ def diastranscurridos(df_in001):
     df_grp_min = df_cl_in001.loc[df_in001.groupby('user_name').date.idxmin()]
     #agregamos el current date
     current_date = date.today()
-    df_grp_min.insert(3,'Today_date',current_date)
+    df_grp_min.insert(3,'today_date',current_date)
+    #Transformamos a date time 
     #calculamos los dias entre dos fechas y agregamos columna
-    df_grp_min['dias_trans'] = (df_grp_min['Today_date']-df_grp_min['date']).days
+    df_dias_trans = df_grp_min['today_date']-df_grp_min['date']
     print(f'DF agrupado \n {df_grp_min.head()} \n ,{df_grp_min.shape}')
-    return()
+    return(df_dias_trans)
 
-today = diastranscurridos(df)
+df_dias_trans = diastranscurridos(df)
 #print(f'la fecha de hoy es \n{today}')
