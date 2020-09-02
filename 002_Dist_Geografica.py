@@ -28,4 +28,4 @@ def grafica_ubicación_geografica(df_in002):
     df_in002.plot(kind='bar',x='user_location',y='count')
     return plt.show()
 
-grafica_ubicación_geografica(tweets_por_ciudad)
+grafica_ubicación_geografica(tweets_por_ciudad.iloc[1:50,:])
