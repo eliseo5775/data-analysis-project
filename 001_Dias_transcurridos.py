@@ -27,7 +27,7 @@ def diastranscurridos(df_in001):
     #date min por usuario
     df_grp_min = df_cl_in001.loc[df_in001.groupby('user_name').date.idxmin()]
     #agregamos el current date
-    current_date = date.today()
+    current_date = date.today().apply(pd.to_datetime)
     df_grp_min.insert(3,'today_date',current_date)
     #Transformamos a date time 
     #calculamos los dias entre dos fechas y agregamos columna
