@@ -15,17 +15,19 @@ df["user_created"] = df['user_created'].astype('datetime64[ns]')
 df["date"] = df['date'].astype('datetime64[ns]')
 
 #Exploramos la data
-print(df.shape)
-print(df.head())
-print(df.info())
-print(df.iloc[1:5,5:13])
+#print(df.shape)
+#print(df.head())
+#print(df.info())
+#print(df.iloc[1:5,5:13])
 
 
-
-def diastranscurridos(df_input001):
-    
-    current_date = date.today()
-    return(current_date)
+def diastranscurridos(df_in001):
+    #current date
+    #current_date = date.today()
+    #date min por usuario
+    df_grp_min = df_in001.loc[df_in001.groupby('user_name').date.idxmin()]
+    print(f'DF agrupado \n {df_grp_min.head()}')
+    return()
 
 today = diastranscurridos(df)
-print(f'la fecha de hoy es \n{today}')
+#print(f'la fecha de hoy es \n{today}')
