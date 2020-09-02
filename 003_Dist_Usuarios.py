@@ -13,6 +13,7 @@ df["user_description"] = df['user_description'].astype('string')
 df["user_created"] = df['user_created'].astype('datetime64[ns]')
 df["date"] = df['date'].astype('datetime64[ns]')
 
+
 #- Crea una función que muestre el resultado de cuántos usuarios por ciudad hay con publicación.
 
 def agrupa_ubicacion_geografica(df):

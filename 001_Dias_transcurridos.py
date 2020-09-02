@@ -12,6 +12,11 @@ df["user_description"] = df['user_description'].astype('string')
 df["user_created"] = df['user_created'].astype('datetime64[ns]')
 df["date"] = df['date'].astype('datetime64[ns]')
 
+#Limpiamos strings
+df["user_name"] = df['user_name'].str.lstrip()
+df["user_location"] = df['user_location'].str.lstrip()
+df["user_description"] = df['user_description'].str.lstrip()
+
 #Exploramos la data
 print(df.shape)
 #print(df.head())
@@ -32,7 +37,7 @@ def diastranscurridos(df_in001):
     df_grp_min.insert(3,'today_date',current_date)
     #Transformamos a date time 
     #calculamos los dias entre dos fechas y agregamos columna
-    df_dias_trans = df_grp_min['today_date']-df_grp_min['date']
+    #df_dias_trans = df_grp_min.loc[df_grp_min['today_date']-df_grp_min['date']]
     print(f'DF agrupado \n {df_grp_min.head()} \n ,{df_grp_min.shape}')
     return(df_dias_trans)
 
