@@ -13,6 +13,13 @@ df["user_description"] = df['user_description'].astype('string')
 df["user_created"] = df['user_created'].astype('datetime64[ns]')
 df["date"] = df['date'].astype('datetime64[ns]')
 
+#Limpiamos strings
+df["user_name"] = df['user_name'].str.lstrip()
+df["user_location"] = df['user_location'].str.lstrip()
+df["user_description"] = df['user_description'].str.lstrip()
+
+#limpiamos NA
+df = df.dropna(axis = 0)
 
 #- Crea una función que muestre el resultado de cuántos usuarios por ciudad hay con publicación.
 

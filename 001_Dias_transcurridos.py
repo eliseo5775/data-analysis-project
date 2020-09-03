@@ -5,7 +5,7 @@ import pandas as pd
 FILENAME = 'Dataset/covid19_tweets.csv'
 df = pd.read_csv(FILENAME)
 
-#Transformas la data
+#Transformas la data con el casting
 df["user_name"] = df['user_name'].astype('string')
 df["user_location"] = df['user_location'].astype('string')
 df["user_description"] = df['user_description'].astype('string')
@@ -16,6 +16,9 @@ df["date"] = df['date'].astype('datetime64[ns]')
 df["user_name"] = df['user_name'].str.lstrip()
 df["user_location"] = df['user_location'].str.lstrip()
 df["user_description"] = df['user_description'].str.lstrip()
+
+#limpiamos NA
+df = df.dropna(axis = 0)
 
 #Exploramos la data
 print(df.shape)
@@ -33,13 +36,12 @@ def diastranscurridos(df_in001):
     #date min por usuario
     df_grp_min = df_cl_in001.loc[df_in001.groupby('user_name').date.idxmin()]
     #agregamos el current date
-    current_date = date.today().apply(pd.to_datetime)
+    current_date = date.today()
     df_grp_min.insert(3,'today_date',current_date)
-    #Transformamos a date time 
+    print(f'DF con current date \n {df_grp_min.head()} \n ,{df_grp_min.shape}')
     #calculamos los dias entre dos fechas y agregamos columna
-    #df_dias_trans = df_grp_min.loc[df_grp_min['today_date']-df_grp_min['date']]
-    print(f'DF agrupado \n {df_grp_min.head()} \n ,{df_grp_min.shape}')
+    df_dias_trans = "df_grp_min.list(df_grp_min['today_date']-df_grp_min['date'])"
     return(df_dias_trans)
 
 df_dias_trans = diastranscurridos(df)
-#print(f'la fecha de hoy es \n{today}')
+print(f'Los dias transcurridos por usuario son los siguientes \n______________________________________________\n{df_dias_trans}')
