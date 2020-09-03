@@ -24,6 +24,9 @@ df = df.dropna(axis = 0)
 #- Crea una función que muestre el resultado de cuántos usuarios por ciudad hay con publicación.
 
 def agrupa_ubicacion_geografica(df):
+    #filtrar los que no son rretweet
+    df = df['id_retweet'] == False
+    print(df.head())
     df_agrupado = df.groupby(['user_location']).size().reset_index(name="count")
     df_ordenado = df_agrupado.sort_values(['count'],ascending=[False])
     return df_ordenado
