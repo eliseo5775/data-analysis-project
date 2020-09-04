@@ -32,8 +32,12 @@ def agrupa_rt_location(df):
     #filtrar los que no son retweet
     df_isrt = df['is_retweet'] == False
     df_filtrado = df[df_isrt]
+    #filtrar usuarios unicos
+    df_filtrado = df_filtrado.drop_duplicates(subset=['user_name'])
+    #agrupar por user location
     df_grouped = df_filtrado.groupby(['user_location']).size().reset_index(name="count")
     df_order = df_grouped.sort_values(['count'],ascending=[False])
+
     df_order = df_order.iloc[1:20,:]
     return df_order
 
@@ -41,7 +45,7 @@ df_filter = agrupa_rt_location(df)
 
 print(f'El data frame filtrado con el top 20 de ciudades \n{df_filter}')
 
-df_filter.plot(kind='bar',x='user_location',y='count')
+df_filter.plot(kind='bar',x='user_location',y='count',title = '# De Usuarios Unicos con publicación del Top 20 de Ciudades')
 plt.show()
 
 #- Crea una función que muestre cuales son los usuarios que han publicado más tweets.
@@ -56,5 +60,5 @@ def agrupa_top_user(df):
 top_user = agrupa_top_user(df)
 
 print(f'Estos son los top 10 Users\n{top_user}')
-top_user.plot(kind='bar',x='user_name',y='count')
+top_user.plot(kind='bar',x='user_name',y='count',title = '# Top 10 de Usuarios con Mas tweets')
 plt.show()
