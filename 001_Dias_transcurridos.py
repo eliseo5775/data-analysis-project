@@ -1,6 +1,7 @@
 
 from datetime import datetime, date
 import pandas as pd 
+import matplotlib.pyplot as plt
 
 #leer de CSV
 
