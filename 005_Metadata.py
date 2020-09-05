@@ -40,7 +40,9 @@ print(f'{numero_url} tweets contienen URL')
 
 # - Crea una función que se encargue de mostrar las palabras más repetidas por país.
 def mas_frecuente (df_in006):
-   df_mf = Counter(" ".join(df_in006["text"]).split()).most_common(10)
+   #df_mf = Counter(df_in006["text"]).most_common(10)
+   #df_mf = Counter(df_in006["text"].split()).most_common(10) 
+   df_mf = Counter(" ".join(df_in006["text"]).split()).most_common(10) 
    return df_mf
 
 print(f'Top 10 palabras mas frecuentes \n {mas_frecuente(df)}')
