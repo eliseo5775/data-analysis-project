@@ -33,7 +33,7 @@ print(f'Tweets por ciudad \n{tweets_por_ciudad}')
 
 #- Crea una función que se encargue de mostrar una gráfica de barras con la información obtenida de la función anterior.
 def grafica_ubicación_geografica(df_in002):
-    df_in002.plot(kind='bar',x='user_location',y='count')
+    df_in002.plot(kind='bar',x='user_location',y='count', title = '# Tweets por ciudad')
     return plt.show()
 
 grafica_ubicación_geografica(tweets_por_ciudad.iloc[1:50,:])
