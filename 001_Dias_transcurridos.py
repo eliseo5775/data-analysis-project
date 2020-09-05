@@ -19,7 +19,7 @@ df["date"] = pd.to_datetime(df['date'].astype('datetime64[ns]'))
 df["user_name"] = df['user_name'].str.lstrip()
 
 #limpiamos NA
-df = df.dropna(axis = 0)
+#df = df.dropna(axis = 0)
 
 #Exploramos la data
 print(f'Shape del data frame:\n{df.shape}')

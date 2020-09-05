@@ -21,7 +21,7 @@ df["user_location"] = df['user_location'].str.lstrip()
 df["user_description"] = df['user_description'].str.lstrip()
 
 #limpiamos NA
-df = df.dropna(axis = 0)
+#df = df.dropna(axis = 0)
 
 # - Crea una función que se encargue de mostrar el total de tweets publicados con base en:
    # - Publicados con imágenes

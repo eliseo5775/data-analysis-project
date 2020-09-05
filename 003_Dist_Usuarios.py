@@ -19,7 +19,7 @@ df["user_location"] = df['user_location'].str.lstrip()
 df["user_description"] = df['user_description'].str.lstrip()
 
 #limpiamos NA
-df = df.dropna(axis = 0)
+#df = df.dropna(axis = 0)
 
 #Exploramos la data
 print(f'Shape del data frame:\n{df.shape}')
