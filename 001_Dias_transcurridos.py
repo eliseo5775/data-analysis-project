@@ -36,6 +36,8 @@ def diastranscurridos(df_in001):
     df_cl_in001 = df_in001.drop(columns=['user_followers','user_location','user_friends','user_favourites','user_description','user_created','source','is_retweet','text','user_verified','hashtags'])
     #date min por usuario
     df_grp_min = df_cl_in001.loc[df_in001.groupby('user_name').date.idxmin()]
+    #ordenamos
+    df_grp_min = df_grp_min.sort_values(['date'],ascending=[True])
     #agregamos el current date
     current_date = pd.to_datetime(date.today())
     df_grp_min.insert(2,'today_date',current_date)
